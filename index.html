@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Cabrera - Portafolio Profesional</title>
+
+    <!-- Tailwind CSS  CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Nunito  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Íconos: Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style> /*estilos css*/
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #121212; 
+            color: #E2E8F0; 
+        }
+        
+        /*tema rojo y negro */
+        :root {
+            --accent-color: #e41c1c; 
+            --accent-color-hover: #C53030; 
+            --card-bg-color: #1A1A1A; 
+            --border-color: #2D3748;
+        }
+
+        .accent-color { color: var(--accent-color); }
+        .bg-accent-color { background-color: var(--accent-color); }
+        .border-accent-color { border-color: var(--accent-color); }
+        .hover\:bg-accent-color-hover:hover { background-color: var(--accent-color-hover); }
+
+        /* Estilo para las tarjetas */
+        .card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(229, 62, 62, 0.1);
+        }
+
+        /* Animacion reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Galería Lightbox */
+        .lightbox {
+            display: none; /* Oculto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body class="antialiased">
+
+    <!-- ===== NAV BAR ===== -->
+    <header class="bg-black/50 backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between h-20">
+                <a href="#" class="text-3xl font-black accent-color tracking-tighter">Mauricio Cabrera</a>
+                <div class="hidden md:flex items-center space-x-8 font-bold">
+                    <a href="#about" class="hover:accent-color transition-colors">Sobre Mí</a>
+                    <a href="#gallery" class="hover:accent-color transition-colors">Galería</a>
+                    <a href="#experience" class="hover:accent-color transition-colors">Experiencia</a>
+                    <a href="#projects" class="inline-block bg-accent-color text-white px-6 py-2 rounded-full hover:bg-accent-color-hover transition-colors">Proyectos</a>
+                   
+                </div>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-800">
+                    <i data-feather="menu"></i>
+                </button>
+            </nav>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#about" class="block py-2 rounded-md text-center hover:bg-gray-800">Sobre Mí</a>
+                <a href="#gallery" class="block py-2 rounded-md text-center hover:bg-gray-800">Galería</a>
+                <a href="#experience" class="block py-2 rounded-md text-center hover:bg-gray-800">Experiencia</a>
+                <a href="#projects" class="block py-2 rounded-md text-center hover:bg-gray-800">Proyectos</a>
+                <a href="#contact" class="block py-2 rounded-md text-center hover:bg-gray-800">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pt-24">
+        
+        <!-- ===== SECCIÓN DE INICIO  ===== -->
+        <section id="home" class="min-h-[80vh] flex items-center text-center reveal">
+            <div class="max-w-4xl mx-auto">
+                <!-- ===== <img src="https://placehold.co/160x160/1A1A1A/E53E3E?text=MC" alt="[Imagen de Mauricio Cabrera]" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-accent-color shadow-lg shadow-red-500/10"> ===== -->
+                
+                <img src="imgs\perfil.jpg" alt="[Imagen de Mauricio Cabrera]" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-accent-color shadow-lg shadow-red-500/10">
+                <h1 class="text-5xl md:text-7xl font-black mb-2 tracking-tighter">Mauricio Cristian Cabrera Oblitas</h1>
+                <p class="text-xl md:text-2xl text-gray-400 mb-8">Ingeniero de Sistemas ,Desarrollador de Software y Consultor Técnico</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/mauricio-cristian-cabrera-oblitas-48806226a/" target="_blank" class="text-gray-400 hover:accent-color transition-colors" aria-label="LinkedIn"><i data-feather="linkedin" class="w-8 h-8"></i></a>
+                    <a href="https://github.com/Maur17" target="_blank" class="text-gray-400 hover:accent-color transition-colors" aria-label="GitHub"><i data-feather="github" class="w-8 h-8"></i></a>
+                    <a href="mailto:mauriciocristiancabrera17@gmail.com" class="text-gray-400 hover:accent-color transition-colors" aria-label="Email"><i data-feather="mail" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SOBRE MÍ ===== -->
+        <section id="about" class="py-24 text-center reveal">
+            <h2 class="text-4xl font-extrabold mb-4">Un poco sobre mí</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-400">
+                Soy un joven Ingeniero en Sistemas ,entusiasta del desarrollo de software ,actualmente me especializo en dar soporte e implementar sistemas ERP. Siempre estoy aprendiendo y buscando nuevos desafíos para crecer profesionalmente.
+            </p>
+        </section>
+
+        <!-- ===== GALERÍA DE IMÁGENES ===== -->
+        <section id="gallery" class="py-24 reveal">
+            <h2 class="text-4xl font-extrabold text-center mb-12"> Fotos</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- efecto lightbox -->
+                <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/718096/FFFFFF?text=Foto+1" alt="[Foto personal 1]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+                <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/4A5568/FFFFFF?text=Foto+2" alt="[Foto personal 2]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+                <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/2D3748/FFFFFF?text=Foto+3" alt="[Foto personal 3]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+                <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/1A202C/FFFFFF?text=Foto+4" alt="[Foto personal 4]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+            </div>
+        </section>
+        
+        <!-- ===== EXPERIENCIA ===== -->
+        <section id="experience" class="py-24 reveal">
+            <h2 class="text-4xl font-extrabold text-center mb-12">Experiencia Profesional</h2>
+            <div class="max-w-3xl mx-auto relative border-l-2 border-gray-700 pl-10 space-y-12">
+                <!-- Punto en la línea de tiempo -->
+                <div class="absolute -left-[11px] top-1 w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md"></div>
+                <!-- Tarjeta de Experiencia -->
+                <div class="card p-6 rounded-lg -ml-4">
+                    <p class="text-sm text-gray-400 mb-1">Nov. 2024 - Actualidad</p>
+                    <h3 class="text-xl font-bold accent-color">Consultor Técnico Júnior</h3>
+                    <p class="font-semibold text-gray-300">TOTVS Oeste / Resultar Soluciones TOTVS</p>
+                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                        <li>Análisis de requerimientos y especificaciones funcionales para clientes.</li>
+                        <li>Soporte técnico y resolución de incidencias en el ERP TOTVS Protheus.</li>
+                        <li>Desarrollo de reportes y consultas personalizadas utilizando SQL.</li>
+                        <li>Participación en proyectos de implementación y migración de datos.</li>
+                    </ul>
+                </div>
+                <!--  copiar desde Punto en linea de tiempo para mas -->
+            </div>
+        </section>
+
+        <!-- ===== PROYECTOS ===== -->
+        <section id="projects" class="py-24 reveal">
+            <h2 class="text-4xl font-extrabold text-center mb-12">Mis Proyectos</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- card  Proyecto 1 -->
+                <div class="card rounded-lg overflow-hidden group">
+                    <img src="https://placehold.co/800x600/1A1A1A/FFFFFF?text=Caratula+Proyecto+1" alt="[Carátula del Proyecto 1]" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 accent-color">Nombre del Proyecto 1</h3>
+                        <p class="text-gray-400 mb-4">Breve descripción del proyecto, las tecnologías usadas y el problema que resuelve.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="flex items-center hover:text-red-400 transition-colors font-semibold"><i data-feather="github" class="w-5 h-5 mr-2"></i> Código</a>
+                            <a href="#" target="_blank" class="flex items-center hover:text-red-400 transition-colors font-semibold"><i data-feather="external-link" class="w-5 h-5 mr-2"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- card Proyecto 2 -->
+                <div class="card rounded-lg overflow-hidden group">
+                    <img src="https://placehold.co/800x600/1A1A1A/FFFFFF?text=Caratula+Proyecto+2" alt="[Carátula del Proyecto 2]" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 accent-color">Nombre del Proyecto 2</h3>
+                        <p class="text-gray-400 mb-4">Breve descripción del proyecto, las tecnologías usadas y el problema que resuelve.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="flex items-center hover:text-red-400 transition-colors font-semibold"><i data-feather="github" class="w-5 h-5 mr-2"></i> Código</a>
+                            <a href="#" target="_blank" class="flex items-center hover:text-red-400 transition-colors font-semibold"><i data-feather="external-link" class="w-5 h-5 mr-2"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Tarjeta de Proyecto + -->
+            </div>
+        </section>
+
+        <!-- ===== CONTACTO ===== -->
+        <section id="contact" class="py-24 text-center reveal">
+             <h2 class="text-4xl font-extrabold mb-4">Contacto</h2>
+             <p class="max-w-xl mx-auto text-lg text-gray-400 mb-8">
+                Por si necesitas comunicarte conmigo
+             </p>
+             <a href="mailto:mauriciocristiancabrera17@gmail.com" class="inline-block bg-accent-color text-white font-bold px-12 py-4 rounded-full hover:bg-accent-color-hover transition-all duration-300 transform hover:scale-105">
+                Envíame un Correo
+             </a>
+        </section>
+        
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-gray-900">
+        <div class="container mx-auto px-4 py-8 text-center text-gray-500">
+            <p>&copy; Mauricio Cristian Cabrera Oblitas</p>
+            <p> Santa Cruz-Bolivia </p>
+            <p> <span id="year"></span>  </p>
+        </div>
+    </footer>
+
+    <!-- Elemento para el Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <img id="lightbox-content" class="lightbox-content" src="" alt="[Imagen ampliada]">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- MENÚ MÓVIL ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            // --- ÍCONOS FEATHER ---
+            feather.replace();
+
+            // --- AÑO FOOTER ---
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // ---  SCROLL ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            // --- LÓGICA DEL LIGHTBOX GALERÍA ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    lightboxContent.src = item.src;
+                });
+            });
+
+            const closeLightbox = () => lightbox.style.display = 'none';
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+        });
+    </script>
+</body>
+</html>
