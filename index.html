@@ -8,12 +8,12 @@
     <!-- Tailwind CSS  CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Nunito  -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Íconos: Feather Icons -->
+    <!-- icons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style> /*estilos css*/
@@ -23,7 +23,7 @@
             color: #E2E8F0; 
         }
         
-        /*tema rojo y negro */
+        /*tema gneral */
         :root {
             --accent-color: #e41c1c; 
             --accent-color-hover: #C53030; 
@@ -47,6 +47,52 @@
             box-shadow: 0 10px 25px rgba(229, 62, 62, 0.1);
         }
 
+        /*  Línea de Tiempo */
+        .timeline-dot {
+            position: absolute;
+            left: -36px; 
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent-color);
+            border-radius: 9999px;
+            border-width: 4px;
+            border-color: #121212;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            z-index: 10;
+        }
+         
+        /* Ocultar scroll en (Chrome, Safari, Edge) */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Oculta en Firefox y IE/Edge */
+        body {
+            -ms-overflow-style: none;  /* IE y Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        /* Barra de Scroll  */
+        .timeline-viewport::-webkit-scrollbar {
+            width: 8px;
+        }
+        .timeline-viewport::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        .timeline-viewport::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            border: 2px solid #1a1a1a;
+        }
+        .timeline-viewport::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent-color-hover);
+        }
+        /* Firefox */
+        .timeline-viewport {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) #1a1a1a;
+        }
+
         /* Animacion reveal */
         .reveal {
             opacity: 0;
@@ -58,7 +104,7 @@
             transform: translateY(0);
         }
 
-        /* Galería Lightbox */
+        /* galería Lightbox */
         .lightbox {
             display: none; /* Oculto */
             position: fixed;
@@ -85,6 +131,33 @@
             transition: 0.3s;
             cursor: pointer;
         }
+
+        /* WebKit (Chrome, Safari, Edge) */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px; 
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1A1A1A; 
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color); 
+            border-radius: 10px;
+            border: 2px solid #1A1A1A; 
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent-color-hover); 
+        }
+
+        /* firefox */
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: var(--accent-color) #1A1A1A;
+        }
+        
     </style>
 </head>
 
@@ -124,9 +197,7 @@
         <!-- ===== SECCIÓN DE INICIO  ===== -->
         <section id="home" class="min-h-[80vh] flex items-center text-center reveal">
             <div class="max-w-4xl mx-auto">
-                <!-- ===== <img src="https://placehold.co/160x160/1A1A1A/E53E3E?text=MC" alt="[Imagen de Mauricio Cabrera]" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-accent-color shadow-lg shadow-red-500/10"> ===== -->
-                
-                <img src="imgs\perfil.jpg" alt="[Imagen de Mauricio Cabrera]" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-accent-color shadow-lg shadow-red-500/10">
+                <img src="imgs/perfil.jpg" alt="[Imagen de Mauricio Cabrera]" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-accent-color shadow-lg shadow-red-500/10">
                 <h1 class="text-5xl md:text-7xl font-black mb-2 tracking-tighter">Mauricio Cristian Cabrera Oblitas</h1>
                 <p class="text-xl md:text-2xl text-gray-400 mb-8">Ingeniero de Sistemas ,Desarrollador de Software y Consultor Técnico</p>
                 <div class="flex justify-center space-x-6">
@@ -149,7 +220,6 @@
         <section id="gallery" class="py-24 reveal">
             <h2 class="text-4xl font-extrabold text-center mb-12"> Fotos</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- efecto lightbox -->
                 <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/718096/FFFFFF?text=Foto+1" alt="[Foto personal 1]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
                 <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/4A5568/FFFFFF?text=Foto+2" alt="[Foto personal 2]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
                 <div class="overflow-hidden rounded-lg"><img src="https://placehold.co/500x500/2D3748/FFFFFF?text=Foto+3" alt="[Foto personal 3]" class="gallery-item w-full h-full object-cover cursor-pointer transition-transform duration-300 hover:scale-110"></div>
@@ -158,51 +228,65 @@
         </section>
         
         <!-- ===== EXPERIENCIA ===== -->
+       
+
         <section id="experience" class="py-24 reveal">
             <h2 class="text-4xl font-extrabold text-center mb-12">Experiencia Profesional</h2>
-            <div class="max-w-3xl mx-auto relative border-l-2 border-gray-700 pl-10 space-y-12">
-                <!-- Punto en la línea de tiempo -->
-                <div class="absolute -left-[11px] top-1 w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md"></div>
-                <!-- Tarjeta de Experiencia -->
-                <div class="card p-6 rounded-lg -ml-4">
-                    <p class="text-sm text-gray-400 mb-1">Nov. 2024 - Actualidad</p>
-                    <h3 class="text-xl font-bold accent-color">Consultor Técnico Júnior</h3>
-                    <p class="font-semibold text-gray-300">TOTVS Oeste / Resultar Soluciones TOTVS</p>
-                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
-                        <li>Análisis de requerimientos y especificaciones funcionales para clientes.</li>
-                        <li>Soporte técnico y resolución de incidencias en el ERP TOTVS Protheus.</li>
-                        <li>Desarrollo de reportes y consultas personalizadas utilizando SQL.</li>
-                        <li>Participación en proyectos de implementación y migración de datos.</li>
-                    </ul>
-                </div>
+            
+            <!-- línea izquierda. -->
+            <div class="max-w-3xl mx-auto relative border-l-2 border-gray-700 pl-10">
 
-                <!-- Punto en la línea de tiempo -->
-                <div class="absolute -left-[11px] top-1 w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md"></div>
-                <!-- Tarjeta de Experiencia -->
-                <div class="card p-6 rounded-lg -ml-4">
-                    <p class="text-sm text-gray-400 mb-1">Febrero 2025 </p>
-                    <h3 class="text-xl font-bold accent-color">Licenciatura en Ingenieria en Sistemas</h3>
-                    <p class="font-semibold text-gray-300">Universidad Tecnologica Privada de Santa Cruz</p>
-                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
-                        <li>Proyectos en Python,con librerias como FLask y Bottle</li>
-                        <li>Conocimiento de lenguaje estructurado SQL</li>
-                        <li>Graduado satisfactorio.</li>
-                        <li>Certificacion SCRUM y Cisco Packet Tracer</li>
-                    </ul>
-                </div>
+                <!-- barra de scroll -->
+               <div class="max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
+                    <!-- espacio entre tarjetas. -->
+                    <div class="relative pb-12">
+                        <!-- alinear con la línea vertical ext -->
+                        <div class="absolute w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md" style="left: -51px; top: 5px;"></div>
+                        <!-- Tarjeta ITEM 1  -->
+                        <div class="card p-6 rounded-lg">
+                            <p class="text-sm text-gray-400 mb-1">Nov. 2024 - Actualidad</p>
+                            <h3 class="text-xl font-bold accent-color">Consultor Técnico Júnior</h3>
+                            <p class="font-semibold text-gray-300">TOTVS Oeste / Resultar Soluciones TOTVS</p>
+                            <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                                <li>Análisis de requerimientos y especificaciones funcionales para clientes.</li>
+                                <li>Soporte técnico y resolución de incidencias en el ERP TOTVS Protheus.</li>
+                                <li>Desarrollo de reportes y consultas personalizadas utilizando SQL.</li>
+                                <li>Participación en proyectos de implementación y migración de datos.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                   <!-- Punto en la línea de tiempo -->
-                <div class="absolute -left-[11px] top-1 w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md"></div>
-                <!-- Tarjeta de Experiencia -->
-                <div class="card p-6 rounded-lg -ml-4">
-                    <p class="text-sm text-gray-400 mb-1"> 2020 </p>
-                    <h3 class="text-xl font-bold accent-color">Ingles A2</h3>
-                    <p class="font-semibold text-gray-300">Centro Boliviano Americano</p>
-                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
-                        <li>Capacidad de entender y colaborar en trabajos en el idioma Inglés</li>
-                    </ul>
+                    <!-- ITEM 2 -->
+                    <div class="relative pb-12">
+                        <div class="absolute w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md" style="left: -51px; top: 5px;"></div>
+                        <div class="card p-6 rounded-lg">
+                            <p class="text-sm text-gray-400 mb-1">Febrero 2025</p>
+                            <h3 class="text-xl font-bold accent-color">Licenciatura en Ingenieria en Sistemas</h3>
+                            <p class="font-semibold text-gray-300">Universidad Tecnologica Privada de Santa Cruz</p>
+                            <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                                <li>Proyectos en Python, con librerías como Flask y Bottle</li>
+                                <li>Conocimiento de lenguaje estructurado SQL</li>
+                                <li>Graduado satisfactorio.</li>
+                                <li>Certificación SCRUM y Cisco Packet Tracer</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 no  padding-bottom -->
+                    <div class="relative">
+                         <div class="absolute w-6 h-6 bg-accent-color rounded-full border-4 border-[#121212] shadow-md" style="left: -51px; top: 5px;"></div>
+                        <div class="card p-6 rounded-lg">
+                            <p class="text-sm text-gray-400 mb-1">2020</p>
+                            <h3 class="text-xl font-bold accent-color">Ingles A2</h3>
+                            <p class="font-semibold text-gray-300">Centro Boliviano Americano</p>
+                            <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                                <li>Capacidad de entender y colaborar en trabajos en el idioma Inglés</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- desde <div class="relative pb-12"> para añadir más -->
+
                 </div>
-                <!--  copiar desde Punto en linea de tiempo para mas -->
             </div>
         </section>
 
@@ -234,7 +318,6 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Tarjeta de Proyecto + -->
             </div>
         </section>
 
@@ -254,7 +337,7 @@
     <!-- ===== FOOTER ===== -->
     <footer class="border-t border-gray-900">
         <div class="container mx-auto px-4 py-8 text-center text-gray-500">
-            <p>&copy; Mauricio Cristian Cabrera Oblitas</p>
+            <p>© Mauricio Cristian Cabrera Oblitas</p>
             <p> Santa Cruz-Bolivia </p>
             <p> <span id="year"></span>  </p>
         </div>
@@ -262,7 +345,7 @@
 
     <!-- Elemento para el Lightbox -->
     <div id="lightbox" class="lightbox">
-        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <span id="lightbox-close" class="lightbox-close">×</span>
         <img id="lightbox-content" class="lightbox-content" src="" alt="[Imagen ampliada]">
     </div>
 
@@ -279,7 +362,7 @@
             // --- AÑO FOOTER ---
             document.getElementById('year').textContent = new Date().getFullYear();
 
-            // ---  SCROLL ---
+            // --- ANIMACIÓN DE SCROLL ---
             const revealElements = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -288,7 +371,7 @@
             }, { threshold: 0.1 });
             revealElements.forEach(el => observer.observe(el));
 
-            // --- LÓGICA DEL LIGHTBOX GALERÍA ---
+            // --- LIGHTBOX GALERÍA ---
             const lightbox = document.getElementById('lightbox');
             const lightboxContent = document.getElementById('lightbox-content');
             const lightboxClose = document.getElementById('lightbox-close');
@@ -305,6 +388,17 @@
             lightboxClose.addEventListener('click', closeLightbox);
             lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox) closeLightbox();
+            });
+
+            // --- PUNTOS DE LA LÍNEA DE TIEMPO ---
+            const experienceCards = document.querySelectorAll('#experience .card');
+            
+            experienceCards.forEach(card => {
+                const dot = card.querySelector('.timeline-dot');
+                if (dot) {
+                    const topPosition = (card.offsetHeight / 2) - (dot.offsetHeight / 2);
+                    dot.style.top = `${topPosition}px`;
+                }
             });
         });
     </script>
